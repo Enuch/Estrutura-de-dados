@@ -1,4 +1,4 @@
-class Pilha {
+class Stack {
     constructor(size = 5) {
         this.maxSize = size;
         this.dados = [];
@@ -55,4 +55,4 @@ class Pilha {
     }
 }
 
-export default Pilha;
+export default Stack;
