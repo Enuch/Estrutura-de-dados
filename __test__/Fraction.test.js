@@ -17,5 +17,6 @@ test('division', () => {
 });
 
 test('toString', () => {
-    expect(f.toString()).toBe("3/3");
+    f.multiplies(p);
+    expect(f.toString()).toBe("9/9");
 });
