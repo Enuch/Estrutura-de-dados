@@ -11,7 +11,9 @@ test('is stack empty?', () => {
 });
 
 test('Pushing item', () => {
-    expect(s.push(2)).toBe(2);
+    s.push(4);
+    s.push(5)
+    expect(s.topo()).toBe(5);
 });
 
 test('Return size', () => {
