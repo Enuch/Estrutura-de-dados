@@ -60,7 +60,7 @@ class DecToBin {
        do {
            this.push(parseInt(dec % 2));
            dec = dec / 2;
-       }while(dec > 1);
+       }while(dec >= 1);
 
        while (this.size() > 0) {
         binario += this.pop()

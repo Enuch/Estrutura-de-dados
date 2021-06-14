@@ -19,5 +19,5 @@ test('binario return', () => {
 });
 
 test('binario return', () => {
-    expect(dec.decToBin(3)).toBe(11);
+    expect(dec.decToBin(2)).toBe(10);
 });
