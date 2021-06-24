@@ -3,7 +3,7 @@ import Queue from "../src/fila/Queue";
 let q;
 
 beforeEach(() => {
-    q = new Queue(10);
+    q = new Queue(6);
 });
 
 test('enqueue', () => {
@@ -41,3 +41,21 @@ test('data', () => {
     expect(q.front()).toBe(3);
 });
 
+test("isFUll and empty", () => {
+    q.enqueue(3);
+    q.enqueue(20);
+    q.enqueue(12);
+    q.enqueue(7);
+    q.enqueue(89);
+    q.enqueue(1);
+    expect(q.isFull()).toBe(true);
+
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    expect(q.isEmpty()).toBe(true);
+
+});
