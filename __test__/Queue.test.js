@@ -16,9 +16,17 @@ test('dequeue', () => {
     q.enqueue(1);
     q.enqueue(2);
     q.enqueue(3);
+    q.enqueue(3);
+    q.enqueue(3);
+    q.enqueue(3);
     expect(q.front()).toBe(1);
-    expect(q.dequeue()).toBe(1);
-    expect(q.front()).toBe(2);
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    expect(q.isEmpty()).toBe(true);
 });
 
 test('enqueue', () => {
