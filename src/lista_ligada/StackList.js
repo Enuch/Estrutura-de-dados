@@ -3,25 +3,24 @@ import LinkedList from "./LinkedList";
 
 class StackList {
     constructor() {
-        this.topo = -1;
         this.list = new LinkedList();
+        this.topo;
     }
 
     push(data) {
-        this.list.append(data);
-        this.topo++;
+        this.list.add(data);
         return data;
     }
 
     pop() {
         if (this.isEmpty()) throw new Error("Stack underflow");
-        this.topo--;
-        return this.list.removeLast();
+        return this.list.removeFirst();
     
     }
 
     top() {
-        return this.list.search(this.topo+1);
+        if (this.isEmpty()) throw new Error("Stack underflow");
+        return this.topo = this.list.head.next.data;
     }
 
     size() {
