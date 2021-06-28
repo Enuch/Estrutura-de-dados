@@ -66,21 +66,29 @@ class LinkedList {
         this.head.next = next.next;
 
         this.size--;
+
+        return next.data;
     }
 
     removeLast() {
         if (this.isEmpty()) throw new Error("List empty");
-
+        
         if (this.length() === 1) {
+            this.size--;
+            let data = this.head.next;
             this.head.next = null;
+            return data.data;
         } else {
+            this.size--;
             let atual;
+            let data;
             atual = this.head;
             while (atual.next !== null) {
                 atual = atual.next;
             }
-        atual = null;
-        this.size--;
+            data = atual.data;
+            atual = null;
+            return data;
         }
         
     }
@@ -90,8 +98,12 @@ class LinkedList {
             throw new Error("List empty");
         } else {
             if (this.length() === 1) {
+                this.size--;
+                let data = this.head.next;
                 this.head.next = null;
+                return data.data;
             } else {
+                this.size--;
                 let count = 0;
                 let atual;
                 let anterior;
@@ -102,10 +114,10 @@ class LinkedList {
                     count++;
                 }
                 anterior.next = atual.next;
+                return atual.data;
             }
             
         }
-        this.size--;
     }
 
     isEmpty() {

@@ -33,7 +33,7 @@ test("remove", () => {
     expect(l.isEmpty()).toBe(false);
     expect(l.length()).toBe(1);
     expect(l.search(1)).toBe(3);
-    l.removeFirst();
+    expect(l.removeFirst()).toBe(3);
     expect(l.isEmpty()).toBe(true);
 });
 
@@ -44,7 +44,7 @@ test("removeLast", () => {
     expect(l.isEmpty()).toBe(false);
     expect(l.length()).toBe(1);
     expect(l.search(1)).toBe(5);
-    l.removeLast();
+    expect(l.removeLast()).toBe(5);
     expect(l.isEmpty()).toBe(true);
 
 });
@@ -65,7 +65,7 @@ test("remove At", () => {
     l.append(1);
     l.append(2);
     l.append(3);
-    l.removeAt(2);
+    expect(l.removeAt(1)).toBe(1);
     expect(l.isEmpty()).toBe(false);
     expect(l.search(2)).toBe(3);
     expect(l.length()).toBe(2);
