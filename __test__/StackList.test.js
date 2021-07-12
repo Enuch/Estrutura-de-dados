@@ -1,4 +1,4 @@
-import StackList from "../src/lista_ligada/StackList";
+import StackList from "../src/StackList";
 
 let s;
 
@@ -7,39 +7,41 @@ beforeEach(() => {
 });
 
 test("push", () => {
-    s.push(3);
-    s.push(5);
-    expect(s.top()).toBe(5);
-    expect(s.push(6)).toBe(6);
+    s.push(1);
+    s.push(2);
+    expect(s.size()).toBe(2);
+    expect(s.top()).toBe(2);
     expect(s.isEmpty()).toBe(false);
-    expect(s.top()).toBe(6);
-    expect(s.size()).toBe(3);
+    expect(s.toString()).toBe("1->2");
 });
 
 test("pop", () => {
-    s.push(3);
-    s.push(5);
-    expect(s.pop()).toBe(5);
-    expect(s.isEmpty()).toBe(false);
-    expect(s.top()).toBe(3);
+    s.push(1);
+    s.push(2);
+    expect(s.pop()).toBe(2);
+    expect(s.top()).toBe(1);
     expect(s.size()).toBe(1);
-    s.pop();
+    expect(s.isEmpty()).toBe(false);
+    expect(s.pop()).toBe(1);
     expect(s.isEmpty()).toBe(true);
 });
 
-test("top", () => {
-    s.push(3);
-    s.push(5);
-    expect(s.top()).toBe(5);
-});
-
-test("isEmpty", () => {
+test("empty", () => {
     expect(s.isEmpty()).toBe(true);
 });
 
 test("clear", () => {
-    s.push(3);
-    s.push(5);
+    s.push(1);
+    expect(s.size()).toBe(1);
+    s.push(2);
+    expect(s.size()).toBe(2);
     s.clear();
     expect(s.isEmpty()).toBe(true);
+    expect(s.size()).toBe(0);
+});
+
+test("toString", () => {
+    s.push(1);
+    s.push(2);
+    expect(s.toString()).toBe("1->2");
 });
