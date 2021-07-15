@@ -1,4 +1,4 @@
-import Fraction from '../src/Fraction'
+import Fraction from '../src/pilha/Fraction'
 
 let f;
 let p;

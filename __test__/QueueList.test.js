@@ -1,4 +1,4 @@
-import QueueList from "../src/QueueList";
+import QueueList from "../src/lista_ligada/QueueList";
 
 let q;
 

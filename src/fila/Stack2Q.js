@@ -1,4 +1,4 @@
-import Queue from "./queue";
+import Queue from "./Queue";
 
 class Stack2Q {
     constructor(maxTam = 5) {

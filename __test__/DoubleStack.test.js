@@ -1,4 +1,4 @@
-import DoubleStack from "../src/DoubleStack";
+import DoubleStack from "../src/pilha/DoubleStack";
 
 let ds;
 

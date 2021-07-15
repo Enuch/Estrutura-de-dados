@@ -1,4 +1,4 @@
-import StackList from "../src/StackList";
+import StackList from "../src/lista_ligada/StackList";
 
 let s;
 
