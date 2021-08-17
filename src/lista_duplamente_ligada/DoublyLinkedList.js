@@ -116,12 +116,40 @@ class DoublyLinkedList {
            
     }
 
+    remove(dado) {
+		if (!this.isEmpty()) {
+			let current = this.head;
+			let next = this.head.next;
+			let last = this.tail;
+			let aux;
+
+			if (current.data === dado) {
+				return this.removeFirst();
+			} else if (last.data === dado) {
+				return this.removeLast();
+			} else {
+				while (next != null) {
+					if (next.data === dado) {
+						aux = next.next;
+						current.next = next.next;
+						aux.anterior = current;
+						return true;
+					}
+					//iteração
+					current = next;
+					next = next.next;
+				}
+			}
+		}
+
+		return false;
+	}
+
     isEmpty() {
         return this.head === null;
     }
 
     search(data) {
-        if(this.isEmpty()) throw new Error("Empty");
         let a = this.head;
 
         while (a !== null) {
@@ -147,6 +175,24 @@ class DoublyLinkedList {
 		}
 
 		return result;
+	}
+
+    clear() {
+        this.head = null;
+        this.tail = null;
+        this.count = 0;
+    }
+
+    asArray() {
+		let current = this.head;
+		let dados = [];
+
+		while (current != null) {
+			dados.push(current.data);
+			current = current.next;
+		}
+
+		return dados;
 	}
 }
 

@@ -87,3 +87,9 @@ test("removeAt", () => {
     d.removeAt(2);
     expect(d.toString()).toBe("1->3->4->5");
 });
+
+test("remove", () => {
+    d.add(1);
+    d.add(2);
+    expect(d.removeAt(2)).toBe(true);
+});
