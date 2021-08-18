@@ -180,69 +180,97 @@ class LinkedList {
 			return;
 		}
 	}
+
+	decrescent(data) {
+		let new_node = new Node(data);
+
+		if (this.isEmpty()) {
+			this.head.next = new_node;
+		} else {
+			let aux_a = this.head;
+			let aux_b = this.head.next;
+
+			while (aux_b != null) {
+				if (aux_b.data < data) {
+					aux_a.next = new_node;
+					new_node.next = aux_b;
+					return;
+				}
+				//iteração
+				aux_a = aux_b;
+				aux_b = aux_b.next;
+			}
+
+			//caso o if nunca seja true
+			aux_a.next = new_node;
+			new_node.next = null;
+			return;
+		}
+	}
+
 	clear() {
 		this.head = new Node(null);
 	}
 
 	inverter(normal) {
-        let invertida = normal;
-        for(let i = 0; i < normal.size(); i++) {
-            invertida.addAt(i,invertida.removeLast());
-        }
-        return invertida;
-    }
+		let invertida = normal;
+		for (let i = 0; i < normal.size(); i++) {
+			invertida.addAt(i, invertida.removeLast());
+		}
+		return invertida;
+	}
 
-    aleatorio(normal){
-        let random;
-        let aleatorio = normal;
-        for(let i = 0; i < normal.size(); i++) {
-            random = Math.floor(Math.random() * normal.size());
-            aleatorio.addAt(random,aleatorio.removeLast());
-        }
-        return aleatorio;
-    }
+	aleatorio(normal) {
+		let random;
+		let aleatorio = normal;
+		for (let i = 0; i < normal.size(); i++) {
+			random = Math.floor(Math.random() * normal.size());
+			aleatorio.addAt(random, aleatorio.removeLast());
+		}
+		return aleatorio;
+	}
 
-	subString(A,B) {
-        let substring = new LinkedList();
-            let tmp = this.head.next;
-            let cont = 0;
-            while (tmp !== null) {
-                if (tmp.data === A) {
-                    substring.add(A);
-                    cont++;
-                }
-                if(tmp.data !== A && cont>0 && tmp.data !== B ){
-                    substring.append(tmp.data)
-                    
-                }else if( tmp.data === B){
-                    substring.append(B);
-                }
-                //iteração
-                tmp = tmp.next;
-            }
-            
-            return substring;
-        }
+	subString(A, B) {
+		let substring = new LinkedList();
+		let tmp = this.head.next;
+		let cont = 0;
+		while (tmp !== null) {
+			if (tmp.data === A) {
+				substring.add(A);
+				cont++;
+			}
+			if (tmp.data !== A && cont > 0 && tmp.data !== B) {
+				substring.append(tmp.data)
 
-		josephus() {
-			let count = 1;
-			let i = 1;
+			} else if (tmp.data === B) {
+				substring.append(B);
+			}
+			//iteração
+			tmp = tmp.next;
+		}
 
-			while (this.size() > 1) { 
-				if (this.size() < i) {
-					i = 0;
-				}
-				if (count % 3 === 0) {
-					console.log(this.removeAt(i));
-				}
-				
-				i++
-				count++;
+		return substring;
+	}
+
+	josephus() {
+		let count = 1;
+		let i = 1;
+
+		while (this.size() > 1) {
+			if (this.size() < i) {
+				i = 0;
+			}
+			if (count % 3 === 0) {
+				console.log(this.removeAt(i));
 			}
 
-			return this.head.next.data;
-				
+			i++
+			count++;
 		}
+
+		return this.head.next.data;
+
+	}
 }
 
 export default LinkedList;
