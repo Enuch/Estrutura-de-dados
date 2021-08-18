@@ -57,3 +57,18 @@ test("clear", () => {
     expect(c.isEmpty()).toBe(true);
 
 });
+
+test("operações", () => {
+    let d = new Conjunto();
+
+    c.add("A");
+    c.add("B");
+    d.add("A");
+    d.add("B");
+    d.add("C");
+    expect(c.union(d)).toStrictEqual(["A", "B", "C"]);
+    expect(c.intersection(d)).toStrictEqual(["A", "B"]);
+    expect(c.isEqual(d)).toBe(false);
+    expect(c.difference(d)).toStrictEqual([]);
+    expect(c.contains(d)).toBe(false);
+});
