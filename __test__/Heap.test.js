@@ -7,13 +7,20 @@ beforeEach(() => {
 });
 
 test("inserction", () => {
-    h.inserction(50);
-    h.inserction(26);
-    h.inserction(74);
-    h.inserction(6);
-    h.inserction(63);
-    h.inserction(48);
-    h.inserction(18);
-    h.inserction(14);
-    expect(h.toString()).toBe("74->63->50->14->26->48->18->6");
+    h.inserction(56);
+    h.inserction(44);
+    h.inserction(32);
+    h.inserction(10);
+    h.inserction(20);
+    h.inserction(79); 
+    h.inserction(2); 
+
+
+    expect(h.toString()).toBe("79->44->56->10->20->32->2");
+
+        // [2, 3, 5, 1]
+        // [3, 2, 1]
+
+    h.remove()
+    expect(h.toString()).toBe("56->44->32->10->20->2");
 });

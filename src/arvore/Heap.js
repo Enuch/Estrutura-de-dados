@@ -14,16 +14,23 @@ class Heap {
 
     inserction(data) {
         let node = new Node(data, 1);
+
         this.size++;
         this.tree[this.size] = node;
+
         let tamanho = this.size;
         if (tamanho > 1) {
             while (this.tree[tamanho].data > this.tree[Math.floor(tamanho / 2)].data) {
-                
+
                 let aux = this.tree[tamanho];
                 this.tree[tamanho] = this.tree[Math.floor(tamanho / 2)];
                 this.tree[Math.floor(tamanho / 2)] = aux;
-                tamanho = Math.floor(tamanho / 2) + 1;
+
+                tamanho = Math.floor(tamanho / 2);
+                
+                if (tamanho <= 1) {
+                    break;
+                }
             }
         }
     }
@@ -39,7 +46,20 @@ class Heap {
     }
 
     remove() {
+        this.tree[1] = this.tree[this.size];
+        this.tree[this.size] = null;
+        this.size--;
 
+        for (let i = 1; i <= this.size; i++) {
+            for (let i = this.size; i >=2; i--) {
+                if (this.tree[i].data > this.tree[Math.floor(i/2)].data) {
+                    let aux = this.tree[i];
+                    this.tree[i] = this.tree[Math.floor(i/2)];
+                    this.tree[Math.floor(i/2)] = aux;    
+                }
+            }
+        }
+        
     }
 }
 
